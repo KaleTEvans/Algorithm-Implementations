@@ -14,7 +14,7 @@ int FixedSizeSlidingWindow(vector<int>& nums, int window) {
     }
 
     for (int i=window; i < nums.size(); i++) {
-        count = count + nums[i] - nums[i - 3];
+        count = count + nums[i] - nums[i - window];
 
         if (count > MaxCount) {
             MaxCount = count;
@@ -24,28 +24,14 @@ int FixedSizeSlidingWindow(vector<int>& nums, int window) {
 }
 
 // Here is an example for the variable size sliding window
-// Suppose you are looking at a bookshelf with a set time to read, and want to read the most consecutive books
-int VariableSizeSlidingWindow(vector<int>& nums, int MaxTime) {
-    int MaxCount = 0;
-    int count = 0;
-    int R = 0;
-
-    for (int i=0; i < nums.size(); i++) {
-        if (i > 0) {
-            count -= nums[i - 1];
-        }
-        while (R <= nums.size() && count + nums[R] <= MaxTime) {
-            count += nums[R];
-            R++;
-        }
-        MaxCount = max(count, R - i);
-    }
-    return MaxCount;
+// find the maximum sum of any contiguous subarray of size k
+int VariableSizeSlidingWindow(vector<int>& nums, int k) {
+    
 }
 
 int main() {
     vector<int> nums = {1, 2, 3, 4, 5};
     int MaxTime = 20;
 
-    cout << FixedSizeSlidingWindow(nums, MaxTime) << endl;
+    cout << VariableSizeSlidingWindow(nums, MaxTime) << endl;
 }
