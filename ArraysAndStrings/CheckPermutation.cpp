@@ -29,5 +29,5 @@ int main() {
     string s1 = "hello";
     string s2 = "elloh";
 
-    cout << isPermutationMap(s1, s2) << std::endl;
+    cout << isPermutationSort(s1, s2) << std::endl;
 }
