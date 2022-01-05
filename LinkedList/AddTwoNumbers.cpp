@@ -12,19 +12,15 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-void display() {
-   struct ListNode* ptr;
-   while (ptr != NULL) {
-      cout<< ptr->val <<" ";
-      ptr = ptr->next;
-   }
-}
+ int main() {
+    ListNode *t = new ListNode(0);
+    ListNode *p = t->next;
+    p->val = 1;
+    p->next->val = 2;
 
-int main() {
-    ListNode *l = new ListNode(0);
-    l->next->val = 1;
-    l = l->next;
-    l->next->val = 2;
-
-    display();
-}
+    ListNode *temp = t;
+    while (temp->next != NULL) {
+        cout << temp << " ";
+        temp = temp->next;
+    }
+ }
